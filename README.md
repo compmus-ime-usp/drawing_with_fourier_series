@@ -1,6 +1,6 @@
 # Drawing With Fourier Series
 
-This project was made to make draws using the Fourier series given a signal representing the draw ordered points
+Create drawings by using the Fourier series to approximate a given signal, representing the ordered points of the drawing.
 
 ## Next Steps
 
