@@ -111,9 +111,12 @@ class OpenCVAnimationDrawer(Drawer):
                                 first_point[1] + np.array(component_sinusoid_y)[j, i])
                 lines_to_draw.append([first_point, second_point])
 
-                radius = int(np.sqrt(
-                    (second_point[0] - first_point[0]) ** 2 + (second_point[1] - first_point[1]) ** 2) * scale_x)
+                # Calculate scaled Euclidean distance as radius
+                dx = (second_point[0] - first_point[0]) * scale_x
+                dy = (second_point[1] - first_point[1]) * scale_y
+                radius = int(np.sqrt(dx ** 2 + dy ** 2))
 
+                # Scale and draw the circle
                 center = (int((first_point[0] - x_min) * scale_x + self.margin[0]),
                           int((first_point[1] - y_min) * scale_y + self.margin[1]))
                 cv2.circle(frame, center, radius, (0, 255, 0), 1)
